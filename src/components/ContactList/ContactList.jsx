@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 import css from './ContactList.module.css';
 
@@ -55,3 +56,15 @@ export class ContactList extends Component {
     );
   }
 }
+
+ContactList.propTypes = {
+  deleteUser: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }).isRequired
+  ),
+};

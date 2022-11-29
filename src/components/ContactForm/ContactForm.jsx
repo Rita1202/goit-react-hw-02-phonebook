@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 import css from './ContactForm.module.css';
 
@@ -64,3 +65,15 @@ export class ContactForm extends Component {
     );
   }
 }
+
+ContactForm.popTypes = {
+  handleChange: PropTypes.func.isRequired,
+  addUser: PropTypes.func.isRequired,
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }).isRequired
+  ),
+};
