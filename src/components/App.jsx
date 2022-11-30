@@ -23,13 +23,23 @@ export class App extends Component {
   };
 
   addUser = data => {
-    const newUser = {
-      ...data,
-      id: nanoid(),
-    };
-    this.setState(prev => ({
-      contacts: [...prev.contacts, newUser],
-    }));
+    const repeat = this.state.contacts.find(el => {
+      // console.log(data.name);
+
+      return el.name === data.name;
+    });
+
+    if (repeat) {
+      alert(`${data.name} is already in contacts`);
+    } else {
+      const newUser = {
+        ...data,
+        id: nanoid(),
+      };
+      this.setState(prev => ({
+        contacts: [...prev.contacts, newUser],
+      }));
+    }
   };
 
   deleteUser = userToDelete => {

@@ -16,20 +16,11 @@ export class ContactForm extends Component {
 
   submitHandler = e => {
     e.preventDefault();
-
-    const repeat = this.props.contacts.find(el => {
-      return el.name === this.state.name;
+    this.props.addUser({ ...this.state });
+    this.setState({
+      name: '',
+      number: '',
     });
-
-    if (repeat) {
-      alert(`${this.state.name} is already in contacts`);
-    } else {
-      this.props.addUser({ ...this.state });
-      this.setState({
-        name: '',
-        number: '',
-      });
-    }
   };
 
   render() {
