@@ -24,8 +24,6 @@ export class App extends Component {
 
   addUser = data => {
     const repeat = this.state.contacts.find(el => {
-      // console.log(data.name);
-
       return el.name === data.name;
     });
 
